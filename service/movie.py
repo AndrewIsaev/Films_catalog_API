@@ -10,11 +10,11 @@ class MovieService:
 
     def get_all(self, filters):
         if filters.get("status") == "new" and filters.get("page") is not None:
-            movies = self.dao.filter_by_year_paginate(page=filters.get("page"), per_page=12)
+            movies = self.dao.filter_by_year_paginate(page=int(filters.get("page")), per_page=12)
         elif filters.get("status") == "new":
             movies = self.dao.filter_by_year()
         elif filters.get("page") is not None:
-            movies = self.dao.get_all_paginate(page=filters.get("page"), per_page=12)
+            movies = self.dao.get_all_paginate(page=int(filters.get("page")), per_page=12)
         else:
             movies = self.dao.get_all()
         return movies

@@ -10,7 +10,7 @@ class GenreService:
 
     def get_all(self, filters):
         if filters.get("page") is not None:
-            return self.dao.get_all_paginate(page=filters.get("page"), per_page=12)
+            return self.dao.get_all_paginate(page=int(filters.get("page")), per_page=12)
         return self.dao.get_all()
 
     def create(self, genre_d):
