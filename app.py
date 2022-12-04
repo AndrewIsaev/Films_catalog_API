@@ -4,6 +4,7 @@ from flask_restx import Api
 from config import Config
 from setup_db import db
 from views.directors import director_ns
+from views.favourite_movie import f_movie_ns
 from views.genres import genre_ns
 from views.movies import movie_ns
 from views.users import user_ns
@@ -19,6 +20,8 @@ def create_app(config_object):
 
 def register_extensions(app):
     db.init_app(app)
+    with app.app_context():
+        db.create_all()
     api = Api(app)
 
     api.add_namespace(director_ns)
@@ -26,6 +29,7 @@ def register_extensions(app):
     api.add_namespace(movie_ns)
     api.add_namespace(user_ns)
     api.add_namespace(auth_ns)
+    api.add_namespace(f_movie_ns)
 
 
 app = create_app(Config())
