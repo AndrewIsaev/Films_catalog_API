@@ -26,6 +26,14 @@ class UserDAO:
         self.session.add(user)
         self.session.commit()
 
+    def update_password(self, data):
+        user = self.get_by_email(data.get("email"))
+        if data.get("password_2") is not None:
+            user.password = data.get("password_2")
+
+        self.session.add(user)
+        self.session.commit()
+
     def create(self, user_data):
         user = User(**user_data)
 

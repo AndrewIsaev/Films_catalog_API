@@ -18,6 +18,12 @@ class UsersViews(Resource):
         user = user_service.create(req_json)
         return "", 201, {"location": f"/users/{user.id}"}
 
+@user_ns.route("/password")
+class ChangeUserPassword(Resource):
+    def put(self):
+        req_json = request.json
+        user_service.update_password(req_json)
+        return "", 201
 
 @user_ns.route("/<int:uid>")
 class UserViews(Resource):
@@ -29,4 +35,9 @@ class UserViews(Resource):
         req_json = request.json
         req_json["id"]=uid
         user_service.update(req_json)
+        return "", 204
+
+    def put(self):
+        req_json = request.json
+        user_service.update_password(req_json)
         return "", 204

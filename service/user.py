@@ -23,9 +23,17 @@ class UserService:
         return self.dao.create(user_data)
 
     def update(self, user_data):
-        # user_data["password"] = self.get_hash(user_data.get("password"))
         self.dao.update(user_data)
         return self.dao
+
+    def update_password(self, user_data):
+        email = user_data.get("email")
+        user = self.get_by_email(email)
+        password_1 = user_data.get("password_1")
+        password_2 = user_data.get("password_2")
+        if self.compare_passwords(password_1, user.password):
+            user_data["password_2"] = self.get_hash(password_2)
+            return self.dao.update_password(user_data), 201
 
     def get_hash(self, password):
         return base64.b64encode(hashlib.pbkdf2_hmac(
