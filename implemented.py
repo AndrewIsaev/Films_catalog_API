@@ -11,12 +11,14 @@ from service.movie import MovieService
 from service.user import UserService
 from setup_db import db
 
+# Create DAO
 director_dao = DirectorDAO(session=db.session)
 genre_dao = GenreDAO(session=db.session)
 movie_dao = MovieDAO(session=db.session)
 user_dao = UserDAO(session=db.session)
 f_movie_dao = FavouriteMovieDAO(session=db.session)
 
+# Create Service
 director_service = DirectorService(dao=director_dao)
 genre_service = GenreService(dao=genre_dao)
 movie_service = MovieService(dao=movie_dao)
