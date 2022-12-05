@@ -1,15 +1,7 @@
 
-Authentication
+### Authentication ###
 
-POST request /auth/register/ - register user is system
-
-Exapmle: 
-
-    { 
-        "email": "email@email",
-        "password": "password"
-    }
-POST request /auth/login/ - log user in system
+**POST request /auth/register/** - register user is system
 
 Exapmle: 
 
@@ -17,7 +9,15 @@ Exapmle:
         "email": "email@email",
         "password": "password"
     }
-PUT request /auth/login/ - update tokens
+**POST request /auth/login/** - log user in system
+
+Exapmle: 
+
+    { 
+        "email": "email@email",
+        "password": "password"
+    }
+**PUT request /auth/login/** - update tokens
 
 Exapmle: 
 
@@ -25,10 +25,11 @@ Exapmle:
         "refresh_token": "agha;lkghjas;gh"
     }
 
-Users
+### Users ###
 
-GET request /user/ - get user 
-PATCH request /user/ - update users info (name, surname, favorite genre)
+**GET request /user/** - get user 
+
+**PATCH request /user/** - update users info (name, surname, favorite genre)
 
 Example: 
 
@@ -37,7 +38,7 @@ Example:
         "surname": "Petrov"
         "favorite_genre": 1
     }
-PUT request /user/ - update users password
+**PUT request /user/** - update users password
 
 Example: 
 
@@ -47,10 +48,10 @@ Example:
         "password_2": "qwerty2"
     }
 
-Favorites
+### Favorites ###
 
 
-POST request /favorites/movies/<int:movie_id> - add movie to users favorites
+**POST request /favorites/movies/<int:movie_id>** - add movie to users favorites
 
 Example: 
 
@@ -59,19 +60,22 @@ Example:
         "movie_id": "1"
     }
 
-DELETE request /favorites/movies/<int:movie_id> - route to delete movie from users favorites
+**DELETE request /favorites/movies/<int:movie_id>** - route to delete movie from users favorites
 
-Movies
+### Movies ###
 
-GET request /movies/ - get all movies (params - status, page)
-GET request /movies/<int:movie_id> - get one movie
+**GET request /movies/** - get all movies (params - status, page)
 
-Directors
+**GET request /movies/<int:movie_id>** - get one movie
 
-GET request /directors/ - route to get all directors (params - page)
-GET request /directors/<int:director_id> - get one director
+### Directors ###
 
-Genres
+**GET request /directors/** - route to get all directors (params - page)
 
-GET request /genres/ - get all genres (params - page)
-GET request /genres/<int:genre_id> - get one genre
+**GET request /directors/<int:director_id>** - get one director
+
+### Genres ###
+
+**GET request /genres/** - get all genres (params - page)
+
+**GET request /genres/<int:genre_id>** - get one genre
