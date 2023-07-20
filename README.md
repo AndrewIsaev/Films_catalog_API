@@ -20,10 +20,21 @@ Back-end for films catalog like kinopoisk
 ## Start app
 1. Clone project
    ```
-   git clone https://github.com/AndrewIsaev/Advertisement_Service.git
-2. Run app
+   https://github.com/AndrewIsaev/Films_catalog_API.git
+2. Create virtual environment
    ```
-    ./manage.py runserver
+    python3 -m venv venv
+3. Activate virtual environment
+   ```
+    source venv/bin/activate
+4. Install requirements
+   ```
+    pip install -r requirements.txt
+5. Run flask application
+   ```
+    export FLASK_APP=run.py
+    flask run
+***
 ***
 ## Project structure
 - `dao/`: models and work with database
